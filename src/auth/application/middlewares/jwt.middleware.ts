@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import { Response, Request, NextFunction } from "express";
-import { SECRET_KEY_JWT } from "../../constants/secretKeyJwt";
+import { SECRET_KEY_JWT } from "../../domain/constants/secretKeyJwt";
 
 export const verifyJwt = (req: Request, res: Response, next: NextFunction) => {
     let token = req.get("Authorization");

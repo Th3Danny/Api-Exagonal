@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { db } from "./src/shured/aplicacion/mysqlConnection";
-import indexRouter from "./src/shured/infrestructura/index.router";
+import { db } from "./src/shared/aplicacion/mysqlConnection";
+import indexRouter from "./src/shared/infrestructura/index.router";
 
 const app = express();
 const PORT = process.env.PORT;

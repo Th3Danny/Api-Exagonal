@@ -1,14 +1,15 @@
 import { MySqlRepositoryCliente } from "./DbRepository/mysql.respository";
 import { GetClientesService } from "../application/services/getClientes.service";
-import { GetClienteByIdService } from "../application/services/getClientesById.services";
+import { GetClienteByCorreoService } from "../application/services/getClientesById.services";
 import { GetClientesController } from "./controllers/getClientes.controller";
-import { GetClienteByIdController } from "./controllers/getClientesById.controller";
-
+import { GetClienteByCorreoController } from "./controllers/getClientesById.controller";
+import { PostClienteService } from "../application/services/postClientes.services";
+import { PostClienteController } from "./controllers/postClientes.controller";
 const mysqlRepository = new MySqlRepositoryCliente();
 
 const getClienteService = new GetClientesService(mysqlRepository);
-const getClienteByIdService = new GetClienteByIdService(mysqlRepository);
-
+const getClienteByCorreoService = new GetClienteByCorreoService(mysqlRepository);
+const postClienteService = new PostClienteService(mysqlRepository)
 export const getClientesController = new GetClientesController(getClienteService);
-export const getClienteByIdController = new GetClienteByIdController( getClienteByIdService);
-
+export const getClienteByCorreoController = new GetClienteByCorreoController( getClienteByCorreoService);
+export const postClienteController = new PostClienteController(postClienteService)

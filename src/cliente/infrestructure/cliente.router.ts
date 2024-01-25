@@ -1,10 +1,11 @@
 import { Router } from "express";
 import { getClientesController } from "./dependencias.cliente";
-import { getClienteByIdController } from "./dependencias.cliente";
+import { getClienteByCorreoController } from "./dependencias.cliente";
+import { postClienteController } from "./dependencias.cliente";
 const clienteRouter = Router();
 
 clienteRouter
 .get("/", getClientesController.run.bind(getClientesController))
-.get("/:id", getClienteByIdController.run.bind(getClienteByIdController))
-
+.get("/:correo_cliente", getClienteByCorreoController.run.bind(getClienteByCorreoController))
+.post('/', postClienteController.run.bind(postClienteController))
 export default clienteRouter;
