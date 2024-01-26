@@ -1,5 +1,4 @@
 import { Router } from "express";
-import { verifyJwt } from "../../../auth/application/middlewares/jwt.middleware";
 import{
     getProductosController,
     getProductosByIdController,
