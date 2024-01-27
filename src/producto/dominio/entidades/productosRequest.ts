@@ -1,5 +1,5 @@
 export interface ProductosRq {
-    id_producto: number;
+    id_producto ?: number;
     nombre: String;
     
 } 

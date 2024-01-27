@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { GetClienteByCorreoService } from "../../application/services/getClientesById.services";
+import { GetClienteByCorreoService } from "../../application/services/getClientesByCorreo.services";
 
 export class GetClienteByCorreoController {
     constructor(private readonly getClienteByCorreoService: GetClienteByCorreoService) {}

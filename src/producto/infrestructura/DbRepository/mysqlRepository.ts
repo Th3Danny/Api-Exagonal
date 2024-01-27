@@ -35,4 +35,9 @@ export class MySQLRepositoryProductos implements ProductosRepository {
           throw new Error(err);
         });
     }
+
+    deleteByIdProductos(id_producto: number): Promise<void> {
+      const query="delete from producto where id_producto = ?;"
+      return db.execute(query,[id_producto]).then((res:any)=> res[0] as void)
+    }
 }

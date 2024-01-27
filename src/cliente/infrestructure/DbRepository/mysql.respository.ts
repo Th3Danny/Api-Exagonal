@@ -31,6 +31,13 @@ export class MySqlRepositoryCliente implements ClienteRepository {
           
       }
 
+      deleteClienteByCorreo(correo_cliente: string): Promise<void> {
+        const query = "DELETE FROM cliente where correo_cliente = ?";
+        return db.execute(query, [correo_cliente]).then((res: any) => res[0] as void);
+      }
+
+
+
 
 
 }
