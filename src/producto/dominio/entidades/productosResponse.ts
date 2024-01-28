@@ -1,6 +1,6 @@
 export interface ProductosRs {
     
-    nombre: String;
+    nombre: string;
     precio: number;
     cantidad: number;
 } 

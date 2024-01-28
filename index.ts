@@ -5,8 +5,14 @@ import indexRouter from "./src/shared/infrestructura/index.router";
 
 const app = express();
 const PORT = process.env.PORT;
+app.disable('x-powered-by');
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:3000/api', // Especifica tus dominios permitidos
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/", indexRouter);

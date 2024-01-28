@@ -1,13 +1,23 @@
 import { Router } from "express";
-import { getClientesController } from "./dependencias.cliente";
-import { getClienteByCorreoController } from "./dependencias.cliente";
-import { postClienteController } from "./dependencias.cliente";
-import { deleteClienteByCorreoController } from "./dependencias.cliente";
+import {
+    getClientesController,
+    getClienteByCorreoController,
+    postClienteController,
+    deleteClienteByCorreoController
+} from "./dependencias.cliente";
 const clienteRouter = Router();
 
 clienteRouter
-.get("/", getClientesController.run.bind(getClientesController))
-.get("/:correo_cliente", getClienteByCorreoController.run.bind(getClienteByCorreoController))
-.post('/', postClienteController.run.bind(postClienteController))
-.delete("/:correo_cliente", deleteClienteByCorreoController.run.bind(deleteClienteByCorreoController))
+    .get("/", async (req, res) => {
+        await getClientesController.run(req, res)
+    })
+    .get("/:correo_cliente", async (req, res) => { 
+        await getClienteByCorreoController.run(req, res)
+    })
+    .post('/',  async (req, res) => {
+        await postClienteController.run(req, res)
+    })
+    .delete("/:correo_cliente", async (req, res) => {
+        await deleteClienteByCorreoController.run(req, res)
+    })
 export default clienteRouter;

@@ -9,8 +9,20 @@ import{
 const productosRouter = Router();
 
 productosRouter
-.get("/", getProductosController.run.bind(getProductosController))
-.get('/:id', getProductosByIdController.run.bind(getProductosByIdController))
-.post('/', postProductoController.run.bind(postProductoController))
-.delete('/:id_producto', deleteByIdProductosController.run.bind(deleteByIdProductosController))
+.get("/", async (req, res) => {
+    await getProductosController.run(req, res);
+  })
+.get('/:id', async (req, res) => {
+    await getProductosByIdController.run(req, res);
+  })
+  
+  .post('/', async (req, res) => {
+    await postProductoController.run(req, res);
+  })
+  
+  .delete('/:id_producto', async (req, res) => {
+    await deleteByIdProductosController.run(req, res);
+  })
+  
+  
 export default productosRouter;
